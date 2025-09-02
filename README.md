@@ -158,6 +158,8 @@ Ele precisa ser bom com as pessoas
 ### Precisa ser político ### 
 Precisa saber que existem hierarquias, precisa saber convencer, influenciar e negociar.
 
+---
+
 # DevOps #  
 É uma maneira de eu entregar valor pro meu cliente mais rápido.
 É uma forma de eu entregar valor pra ele.
@@ -184,3 +186,41 @@ Se um programador publicar uma versão nova do sistema, ela em pouco tempo estar
 
 ## Operar
 saber voltar versão se der merda, sem parar o sistema
+
+---
+
+#20250902
+
+### Arquitetura vs Design
+
+### Arquiteto
+cria os artefatos que são passados para os desenvolvedores
+Características da Arq.
+Estilo
+Estrutura do Componente
+
+### Desenvolvedor
+Design da Classe
+Interface do usuário
+Código Fonte
+
+Para fazer a arquitetura funcionar, as barreiras físicas e virtuais que existem entre arquitetos e devs deve ser quebrada, formando uma relação bidirecional.
+
+O arquiteto e o dev devem ter contínua colaboração.
+
+### Escopo dos detalhes técnicos
+
+#### DEV
+Deve ter profundidade técnica
+
+#### Arquiteto
+Deve ter amplitude técnica, deve pensar como arquiteto.
+
+Qualquer indivíduo pode particionar seu conhecimento em 3 partes. O que você sabe, o que você sabe que não sabe e o que você não sabe que não sabe.
+
+"Como arquiteto, é mais vantajoso saber que existem 5 soluções para certo problema do que ter especialização em apenas uma".
+
+
+
+
+

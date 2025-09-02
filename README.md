@@ -115,3 +115,4 @@ Hoje, a recomendação é: quando possível, prefira composição (uma classe us
 A classe deve estar fechada para modificações e aberta para extensões.
 Você deve proteger seus objetos pra que ninguém possa quebrar ele, porém preciso ser capaz de extender, de dar novas funcionalidades sem quebrar aquilo que meu código já faz.
 
+### Atributo static é um tipo de variável global que é carregada antes de tudo, antes do objeto

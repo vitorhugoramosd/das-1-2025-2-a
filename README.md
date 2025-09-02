@@ -116,3 +116,71 @@ A classe deve estar fechada para modificações e aberta para extensões.
 Você deve proteger seus objetos pra que ninguém possa quebrar ele, porém preciso ser capaz de extender, de dar novas funcionalidades sem quebrar aquilo que meu código já faz.
 
 ### Atributo static é um tipo de variável global que é carregada antes de tudo, antes do objeto
+
+## Características arquiteturais##
+São os requisitos não funcionais
+
+## Decisão arquitetural ##
+Quando escolho a arquitetura que vou usar e que vai atender minhas necessidades.## 
+
+## Principios do Design ##
+é um principio: Tenho que fazer a comunicação através de um sistema de mensagerias.
+
+## Arquiteto ##
+Ele que vai tomar as decisoes de arquitetura.
+Ele tem que tomar as decisões com base em análises.
+Ele tem que estar por dentro das novas tendências.
+Deve ter experiência com cenários diferentes
+Manter padrão
+Manter lado humano
+### Orientar ###
+Deve orientar a equipe de acordo com sua experiência e conhecimento
+A grande sacada é o arquiteto entender que, nem sempre ele sabe tudo.
+
+### Analisar continuamente o sistema ###
+Analisar constantemente o sistema para avaliar se a forma que você ta programando e as ferramentas que você está utilizando estão de fato agregando ao sistema, ou se é necessário mudar o "rumo" das coisas.
+
+### Fun fact:###
+A grande maioria dos microsserviços da netflix esta no java 8
+
+### Assegurar que os padrões estão sendo seguidos ###
+Através da análise estática de códigos.
+Exemplo: Eu criar uma conexão de banco de dados na camada do controlador. Estou quebrando as camadas predefinidas. 
+Dessa forma, apenas através da análise estática, consigo garantir que isso não irá ser quebrado.
+
+### Arquiteto não se cria sem experiência ###
+Precisa passar por ERP, por Desweb, por Mobile etc..
+Arquiteto tem que ter boa noção de administração, pois ele precisa ser capaz de falar com o PO sobre a regra de negócio. 
+
+### Habilidades Interpessoais ###  
+Ele precisa ser bom com as pessoas
+
+### Precisa ser político ### 
+Precisa saber que existem hierarquias, precisa saber convencer, influenciar e negociar.
+
+# DevOps #  
+É uma maneira de eu entregar valor pro meu cliente mais rápido.
+É uma forma de eu entregar valor pra ele.
+## Por que DevOps? ##  
+Pois existem 2 equipes, a galera do desenvolvimento e a galera que mantem o sistema no ar.
+Nesse sentido, a ideia foi colocar essas duas equipes para trabalhar colaborativamente.
+
+Algumas empresas usam o DevOps como cultura. Ou seja, todo mundo é responsável pelo sistema.
+
+Significa que, se o sistema cai, todo da equipe são "responsáveis" e vão trabalhar para "levantar o sistema novamente".
+
+## Planejamento 
+Gestão de projetos ágeis (kanbam, scrum etc.) geralmente com períodos curtos de trabalho e bem definidos.
+
+## Criar
+A galera faz o programa.
+
+## Integração contínua
+Ter um reposisório central de código confiável. Uma Main da vida.
+
+## Continuos Deployment e
+## Continuous Delivery
+Se um programador publicar uma versão nova do sistema, ela em pouco tempo estará disponível para todos os clientes 
+
+## Operar
+saber voltar versão se der merda, sem parar o sistema

@@ -220,7 +220,74 @@ Qualquer indivíduo pode particionar seu conhecimento em 3 partes. O que você s
 
 "Como arquiteto, é mais vantajoso saber que existem 5 soluções para certo problema do que ter especialização em apenas uma".
 
+# 20250908 - Arquitetura baseada em tópicos:
+
+Analogia do grupo da familia - Tia manda o bom dia no grupo e todos recebem
+É como se fosse o observer, porém nesse caso, é de um sistema distribuido, ou seja, não estão no mesmo "programa".
+
+publisher ---> subscribers
+isso acima é um para muitos, pois ele publica uma coisa e todos vao receber
+o cara que joga o evento, esse evento geralmente é um documento JSON. Todo mundo recebe esse mesmo JSON.
+
+Protocolo AMQP - Assincrone message queue protocol
+MQTT
+WEB SOCKET - não é bem uma final, é um tunel
+
+Tópico mais chique --> Stream: Permite que eu volte no tempo e reveja o que foi mandado.
+
+No tópico normal, se eu não estiver "vivo" eu não recebo
+
+Arquitetura em tópico traz um maior desacoplamento, pois posso adicionar um novo subscriber sem mexer em nada do subscriber. Ou seja, quando adiciono um novo sub, gero pouco impacto no processo como um todo.
+
+Na fila, o cara que produz a mensagem, ele precisa criar uma mensagem que tenha todas as informações para que o capturar, rastrear e analisar faça seu trabalho, então a mensagem vai ficar maior. Dessa forma, as nuvens cobram por "tamanho" da mensagem.
+
+Newsletter - Trabalha dessa forma
+
+Dados sensíveis não podem ser enviados de forma "individual" e reservada.
 
 
+Pesquisar mais sobre os tópicos abaixo.
+APACHE KAFKA - Um message broker no modelo de stream - é basicamente tudo isso.
+AWS Kineses - amazon
+Azure event hub - microsoft
+RabbitMQ
+AWS SNS - cada topico pode ter 12 milhoes e meio de assinantes
+azure servicebus
+PubSub - Google
+Redis
+
+## Arquitetura por Fila (Queue)
+
+Enqueue e Dequeue
+
+Nesse caso temos o sender e o os receivers
+Quando falamos de fila, temos garantia de que as mensagens são entregadas em ordem.
+Além disso ela serve com o um buffer, ou seja, ela salva as mensagens e guarda elas na ordem em que elas chegaram.
+
+Sender manda as mensagens pra fila, que vai guardar as mensagens enviadas em ordem. Ai a fila vai enviar pro receiver. (pooling).
+
+Modelo FIFO
+
+Se um dos receivers morrer, tudo certo, pq as mensagens estão todas sendo guardadas na fila e quando ele ressuscitar, ele vai recuperar tudo enviado quando ele estava morto.
+
+Aqui quando eu for adicionar um novo receiver, vou precisar adicionar uma fila nova e quem da o lance vai precisar enviar para a fila nova, então tem um impacto, um custo maior quando eu adiciono um novo receiver aqui do que um novo sub na arquitetura de tópicos.
+
+Por fila tem uma "resiliência" maior que o tópico.
+
+Nesse caso que tenho mais acomplamento, posso produzir mensagens específicas para cada um dos receivers. Posso fazer mensagens direcionadas, dessa forma faço mensagens menores.
+
+Imagina q voce tem um sistema em que vc tem o sistema gratuito e um pago.
+QUando vc tem um cliente usa o gratuito, voce entrega as coisas mais simples e baratas.
+quando voce tem um cliente q usa o pago, voce pode ter uma fila diretente, que entrega as melhoers coisas e mais caras. Dessa forma, você pode ter tratamentos diferentes.
+
+Grandes empresas utilizam varias filas que uma se comunicam com outra
+
+Rabbitmq
+
+## Arquitetura FAN-OUT
+
+Utilizo um topico e fila
+
+sender --->topico e o topico que leva a msg pras filas e os consumidores vao nas filas buscar as informações.
 
 

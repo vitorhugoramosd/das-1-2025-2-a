@@ -290,4 +290,7 @@ Utilizo um topico e fila
 
 sender --->topico e o topico que leva a msg pras filas e os consumidores vao nas filas buscar as informações.
 
+## Azure
+RBAC - acessar a nuvem so sendo leitor, sem mexer nos recursos da nuvem do professor
+
 

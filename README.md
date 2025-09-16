@@ -293,4 +293,19 @@ sender --->topico e o topico que leva a msg pras filas e os consumidores vao nas
 ## Azure
 RBAC - acessar a nuvem so sendo leitor, sem mexer nos recursos da nuvem do professor
 
+## 12 factor application
+Manifesto que se você quer fazer qualquer entrevista de emprego, você tem que ler esse documento.
+Criada pela Heroku, primeira empresa de nuvem a oferecer hospedagem java de graça.
+Pagavam AWS pra oferecer hospedagem de graça.
+Faliram..
+Mas criaram o documento que explica os 12 fatores para uma applicação moderna.
 
+2 fator - As dependencias tem que ser declaradas de alguma forma
+3 fator - As configs deveriam estar armazenadas no ambiente.
+
+## 20250916
+
+Nunca criar uma string de acesso e deixar no codigo simples assim. Pois é muito facil voce dar um commit sem querer e acabar vazando no seu git uma string de acesso à nuvem.
+E não da tempo de mudar o commit. O mais correto é correr pra nuvem pra invalidar a string.
+### Lambda Expression 
+Criar uma função dentro do programa, algo assim

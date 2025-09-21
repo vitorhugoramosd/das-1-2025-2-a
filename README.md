@@ -4,22 +4,46 @@ https://www.bloquinho.app/waltercoan
 
 # Aula 04/08
 
+## Complexidade
+Todo software tende a crescer.
+Para desenvolver um software de qualidade, temos de conseguir controlar essa complexidade. Mitigar ela.
+
+entity - dados da aplicação
+repository - conexão com o BD
+service - Lógica de negócios
+controller - html, api rest
+
+### Não reinvente a roda!
+
+Se já existe um framework de mercado validado e que te ajude, utilize ele. Não inicie as coisas do zero.
+ 
 ## **Abstração** 
+Pegar uma coisa do mundo real o que é importante para resolver o problema e representar isso dentro do software.
 é a representação simplificada de uma entidade. É retirar o que é real e representar no software.
 
 ## **Encapsulamento** 
 (Ocultamento de informação) - Getters e Setters - Proteção ao atributo
+
+## Interface
+É um CONTRATO 
+
+### Desenvolvimento em paralelo
+Orientação a objetos permite que seja possível programar em paralelo.
+
+### Débito técnico
+Algo no meu software que todo mundo evita mexer pois foi "mal feito" ou feito na pressa etc.
 
 ## **Coesão** 
 Uma classe deve implementar uma única funcionalidade ou unico serviço no sistema.
 ### Classe anêmica 
 Classe que so tem o nome, os atributos e os getters e setters. 
 
-## **Diagrama UML**
-### Flecha vazia contínua - Herança
-### Flecha vazia pontilhada - Interface
-### Flecha preenchida contínua - Associação
-Variável que é uma classe, não primitiva, ACOPLAMENTO - O quanto uma classe depende de outra classe
+## **Acomplamento**
+
+O quanto um objeto ou uma classe depende de outra classe.
+Quanto mais essa dependencia existe, maior é acoplamento e quanto maior o acoplamento maior a dificuldade de mexer em uma coisa sem prejudicar a outra.
+Variável que é uma classe, não primitiva.
+
 #### Exemplo
 ```
 class A {
@@ -34,17 +58,31 @@ class A {
     }
 ```
 
+Repare que o construtor da classe A tem dentro dele o código de B.
+
+## **Diagrama UML**
+### Flecha vazia contínua - Herança 
+### Flecha vazia pontilhada - Interface
+### Flecha preenchida contínua - Associação
+
+
 # Aula 05/08
 
 ## SOLID
 Acrônimo para 5 conceitos, criado por Robert Martin (Considerado um dos pais da Eng de Software). (Livros de código limpo, Agile). De forma resumida, é usar a orientação a objetos do jeito correto.
-### **S Single Responsability Principle**
-Está ligado à **coesão**, diz que toda classe deve ter uma funcionalidade única
-### **I Segregação de interfaces**
-Utilização de interfaces com objetivos diferentes para executar as funções
 
-MVC - 
-Model - Dados
+### **S Single Responsability Principle**
+Princípio da responsabilidade única
+
+Está ligado à **coesão**, diz que toda classe deve ter uma funcionalidade única
+
+### **I Segregação de interfaces**
+A comunicação entre 2 classes não deveria nunca ser feita diretamente através da conexão direta;
+nunca uma classe a deveria chamar diretamente uma classe B;
+Utilização de interfaces com objetivos diferentes para executar as funções;
+
+MVC - Arquitetura Model View Controller
+Model - Dados (que vão aparecer na tela)
 View - HTML
 C - Controlador
 
@@ -91,25 +129,38 @@ public class Janelinha extends JFrame{
 Soluções padrões para problemas comuns na Orientação à Objetos
 
 #### Princípio da Inversão de Dependências
-A classe que vai consumir alguma coisa (classe controller) deve depender apenas de um abastração e não da implementação completa.
-Ou seja, ela usa uma interface e não uma implementação completa.
+A classe que vai consumir alguma coisa (classe controller (API REST, endpoints)) deve depender apenas de um abastração e não da implementação concreta.
+Classe concreta seria a classe de implementação de fato.
+Ou seja, ela usa uma interface e não uma implementação completa. 
+O controlador faz uso da interface, ele tem uma váriavel do tipo da INTERFACE.
+Ai vai ter uma classe de interface e uma classe implements da interface.
+Faço isso pra reduzir o acomplamento.
+
+No Spring, ele usa o Autowired e vai procurar onde no código que é implementada a interface.
 
 #### Quando devo usar a Herança??
 Tenho 3 classes. Classe Animal, Gato e Cachorro. Gato e Cachorro herdam de animal. Exemplo ideal pois NUNCA um cachorro vai virar gato e nunca um gato vai virar cachorro. AS subclasses são uma divisão do pai. Nunca uma vai assumir o papel do outro.
 
-Outro exemplo: Classes Pessoa, Cliente e Funcionário. Nesse caso não daria pra usar herança pois usando herança você ta dizendo que o funcionário nunca seria um cliente.
+Outro exemplo: Classes Pessoa, Cliente e Funcionário. Nesse caso não daria pra usar herança pois usando herança você ta dizendo que o funcionário nunca seria um cliente. Se você fosse implementar isso em um banco de dados por exemplo, você teria que criar uma tabelona para o funcionário e uma tabelona para cliente, fazendo com que os dados estivessem duplicados.
 
 Anteriormente, acreditava-se que herança era a chave para reutilizar código e criar bons projetos, com hierarquias profundas de classes. 
 Com o tempo, percebeu-se que isso trazia forte acoplamento: mudanças na classe pai podiam quebrar subclasses, já que elas dependem de detalhes internos da implementação, violando o encapsulamento.
 
 Hoje, a recomendação é: quando possível, prefira composição (uma classe usar outra como atributo) em vez de herança, pois isso tende a gerar sistemas mais flexíveis e fáceis de manter.
 
-### Principio do Menor conhecimento (DEMETER)
+### **Principio do Menor conhecimento** (DEMETER)
 ##### O Princípio de Demeter — também chamado de Princípio do Menor Conhecimento (Principle of Least Knowledge) — defende que a implementação de um método deve invocar apenas os seguintes outros métodos:
 ###### de sua própria classe (caso 1)
 ###### de objetos passados como parâmetros (caso 2)
 ###### de objetos criados pelo próprio método (caso 3)
 ###### de atributos da classe do método (caso 4)
+
+Ou seja, o demeter quer limitar o acesso dos teus objetos à um escopo meio que local, e se ele precisar receber coisas de fora, ele tem que receber por parâmetro, para que não utilize variáveis globais.
+
+
+## **Princípio da Substituição de Liskov**
+
+É basicamente você respeitar a assinatura do pai que você herdou, permitindo que eu troque um filho por outro e o código continuar funcionando normalmente. Por exemplo no caso das Janelinhas no java. No Swing eu tenho a classe AbstractBorder. Ai eu tenho também as classes LineBorder e TitledBorder. Essas duas classes são filhas de AbstractBorder.
 
 ### Princípio do Aberto e fechado
 A classe deve estar fechada para modificações e aberta para extensões.
@@ -307,5 +358,6 @@ Mas criaram o documento que explica os 12 fatores para uma applicação moderna.
 
 Nunca criar uma string de acesso e deixar no codigo simples assim. Pois é muito facil voce dar um commit sem querer e acabar vazando no seu git uma string de acesso à nuvem.
 E não da tempo de mudar o commit. O mais correto é correr pra nuvem pra invalidar a string.
+
 ### Lambda Expression 
 Criar uma função dentro do programa, algo assim

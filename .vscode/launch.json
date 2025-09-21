@@ -1,11 +1,18 @@
 {
     "configurations": [
-    {
-        "type": "java",
-        "name": "Launch Java Program",
-        "request": "launch",
-        "mainClass": "",
-        "envFile": "${workspaceFolder}/.env"
-    }
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "br.univille.Main",
+            "projectName": "designpatterns"
+        },
+        {
+            "type": "java",
+            "name": "Launch Java Program",
+            "request": "launch",
+            "mainClass": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
     ]
 }

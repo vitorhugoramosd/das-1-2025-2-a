@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Cliente",
+            "request": "launch",
+            "mainClass": "br.univille.singleton.Cliente",
+            "projectName": "designpatterns"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "br.univille.Main",

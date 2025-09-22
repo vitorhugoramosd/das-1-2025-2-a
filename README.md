@@ -166,16 +166,56 @@ Ou seja, o demeter quer limitar o acesso dos teus objetos à um escopo meio que 
 A classe deve estar fechada para modificações e aberta para extensões.
 Você deve proteger seus objetos pra que ninguém possa quebrar ele, porém preciso ser capaz de extender, de dar novas funcionalidades sem quebrar aquilo que meu código já faz.
 
-### Atributo static é um tipo de variável global que é carregada antes de tudo, antes do objeto
 
+### Atributo static é um tipo de variável global que é carregada antes de tudo, antes do objeto existir;
+É representada por uma linha sublinhada no diagrama da UML
+Códigos estáticos são carregados na memória antes do objeto existir
+Todo atributo estático é uma "espécie" de variável global.
+
+# DESIGN PATTERNS ESTUDADOS 
+
+## **Singleton**
+Uma classe que vai ter uma única instância no sistema.
+Como eu faço isso? - Tornando o construtor um atributo privado
+Então, para cria a classe singleton..
+Como atributo, cria uma variavel instance que tem como tipo o próprio Singleton
+Cria o construtor privado
+cria um getInstance estático
+que vai ver if singleton == null, cria novo singleton
+senao, retorna o singleton.
+
+## 20250825
+
+### **Observer**
+Existe um objeto principal, chamado Publisher(grupo da família), que mantém um estado (A mensagem de bom dia da tia).
+Vários outros objetos, chamados Subscribers(outros integrantes do grupo da família), se inscrevem no Publisher para serem notificados quando esse estado muda.
+Sempre que o Publisher sofre uma alteração, ele notifica automaticamente todos os Subscribers cadastrados, sem precisar conhecer detalhes de sua implementação.(Interface)
+
+### **Adapter**
+Como o próprio nome fala, ele faz uma adaptação de uma "tecnologia" para outra. Um exemplo, é a conversão de XML para JSON na troca de informações por API. No mundo real, o nome disso é API GATEWAY.
+A Globo.com utiliza o KONG, que é um API gateway.
+
+## 20250826
+ 
 ## Características arquiteturais##
 São os requisitos não funcionais
+(Disponibilidade, Confiabilidade, Testabilidade, Escalabilidade, Segurança, Agilidade, Tolerância a falhas, Elasticidade, Recuperabilidade, Desempenho, Implementabilidade, Capacidade de aprendizagem)
+
+## Fun fact:
+Os sistemas financeiros mais antigos, mais "clássicos" gastam bilhoes com a IBM usando o Mainframe deles.
+São máquinas vendidas pela ibm desde a decada de 1960. Esses mainframes rodam em cobol e Fortran e funcionam até hoje. Essas empresas usam isso até hoje pois esses mainframes são muito confiáveis.
 
 ## Decisão arquitetural ##
-Quando escolho a arquitetura que vou usar e que vai atender minhas necessidades.## 
+Quando escolho a arquitetura que vou usar e que vai atender minhas necessidades.
+Por exemplo. Se escolho uma arquitetura por camadas, tenho que garantir que o sistema trabalhe por camadas corretamente.
 
 ## Principios do Design ##
-é um principio: Tenho que fazer a comunicação através de um sistema de mensagerias.
+é um principio: Tenho que fazer a comunicação através de um sistema de mensagerias assíncrona.
+
+Sistema de mensageria: É um serviço que coloco no meio da minha arquitetura onde uma parte do meu sistema escreve nele e uma parte do meu sistema lê dele. É um mecanismo que permite a troca de mensagens.
+
+### Fun fact:
+Para cada pessoa no mundo que fala com a alexa, ela invoca uma lambda (uma maquina virtual), processa a resposta que você quer e depois essa VM é "morta".
 
 ## Arquiteto ##
 Ele que vai tomar as decisoes de arquitetura.
@@ -184,6 +224,7 @@ Ele tem que estar por dentro das novas tendências.
 Deve ter experiência com cenários diferentes
 Manter padrão
 Manter lado humano
+
 ### Orientar ###
 Deve orientar a equipe de acordo com sua experiência e conhecimento
 A grande sacada é o arquiteto entender que, nem sempre ele sabe tudo.
@@ -192,10 +233,10 @@ A grande sacada é o arquiteto entender que, nem sempre ele sabe tudo.
 Analisar constantemente o sistema para avaliar se a forma que você ta programando e as ferramentas que você está utilizando estão de fato agregando ao sistema, ou se é necessário mudar o "rumo" das coisas.
 
 ### Fun fact:###
-A grande maioria dos microsserviços da netflix esta no java 8
+A grande maioria dos microsserviços da netflix esta no java 8.
 
 ### Assegurar que os padrões estão sendo seguidos ###
-Através da análise estática de códigos.
+Através da análise estática de códigos. - Que são ferramentas que varrem meu código procurando alguma quebra de padrão pré estabelecida.
 Exemplo: Eu criar uma conexão de banco de dados na camada do controlador. Estou quebrando as camadas predefinidas. 
 Dessa forma, apenas através da análise estática, consigo garantir que isso não irá ser quebrado.
 
@@ -213,7 +254,6 @@ Precisa saber que existem hierarquias, precisa saber convencer, influenciar e ne
 
 # DevOps #  
 É uma maneira de eu entregar valor pro meu cliente mais rápido.
-É uma forma de eu entregar valor pra ele.
 ## Por que DevOps? ##  
 Pois existem 2 equipes, a galera do desenvolvimento e a galera que mantem o sistema no ar.
 Nesse sentido, a ideia foi colocar essas duas equipes para trabalhar colaborativamente.
@@ -226,17 +266,17 @@ Significa que, se o sistema cai, todo da equipe são "responsáveis" e vão trab
 Gestão de projetos ágeis (kanbam, scrum etc.) geralmente com períodos curtos de trabalho e bem definidos.
 
 ## Criar
-A galera faz o programa.
+A galera faz o programa e cria as funcionalidades.
 
 ## Integração contínua
-Ter um reposisório central de código confiável. Uma Main da vida.
+Ter um reposisório central de código confiável. Uma Main, por exemplo.
 
 ## Continuos Deployment e
 ## Continuous Delivery
 Se um programador publicar uma versão nova do sistema, ela em pouco tempo estará disponível para todos os clientes 
 
 ## Operar
-saber voltar versão se der merda, sem parar o sistema
+saber voltar versão se der algum problema, sem parar o sistema
 
 ---
 

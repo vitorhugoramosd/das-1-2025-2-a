@@ -15,7 +15,9 @@ public class Singleton {//enderchest
 
 
     }
-    public static Singleton getInstance(){//como é static, ele é carregado na memória antes da classe Singleton existir
+    public static Singleton getInstance(){
+        //como é static, ele é carregado na memória antes da classe Singleton existir, então ele vai de cara ver se a instancia já existe, se
+        //não existir, ele cria uma nova e depois retorna a instancia. Depois de criar, ninguem mais pode criar outra instancia.
         System.out.println("getInstance");
         if(instance == null){
             System.out.println("new Singleton");

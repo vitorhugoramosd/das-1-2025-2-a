@@ -328,7 +328,7 @@ Tópico mais chique --> Stream: Permite que eu volte no tempo e reveja o que foi
 
 No tópico normal, se eu não estiver "vivo" eu não recebo
 
-Arquitetura em tópico traz um maior desacoplamento, pois posso adicionar um novo subscriber sem mexer em nada do subscriber. Ou seja, quando adiciono um novo sub, gero pouco impacto no processo como um todo.
+Arquitetura em tópico traz um maior desacoplamento, pois posso adicionar um novo subscriber sem mexer em nada do Publisher. Ou seja, quando adiciono um novo sub, gero pouco impacto no processo como um todo.
 
 Na fila, o cara que produz a mensagem, ele precisa criar uma mensagem que tenha todas as informações para que o capturar, rastrear e analisar faça seu trabalho, então a mensagem vai ficar maior. Dessa forma, as nuvens cobram por "tamanho" da mensagem.
 

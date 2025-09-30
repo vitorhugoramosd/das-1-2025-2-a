@@ -125,7 +125,7 @@ public class Janelinha extends JFrame{
 
 ```
 
-# Design Patterns
+## Design Patterns
 Soluções padrões para problemas comuns na Orientação à Objetos
 
 ## Princípio da Inversão de Dependências
@@ -172,7 +172,7 @@ Você deve proteger seus objetos pra que ninguém possa quebrar ele, porém prec
 Códigos estáticos são carregados na memória antes do objeto existir
 Todo atributo estático é uma "espécie" de variável global.
 
-# DESIGN PATTERNS ESTUDADOS 
+## DESIGN PATTERNS ESTUDADOS 
 
 ## **Singleton**
 Uma classe que vai ter uma única instância no sistema.
@@ -184,7 +184,7 @@ cria um getInstance estático
 que vai ver if singleton == null, cria novo singleton
 senao, retorna o singleton.
 
-## Aula 25/08
+# Aula 25/08
 
 ### **Observer**
 Existe um objeto principal, chamado Publisher(grupo da família), que mantém um estado (A mensagem de bom dia da tia).
@@ -252,7 +252,7 @@ Precisa saber que existem hierarquias, precisa saber convencer, influenciar e ne
 
 ---
 
-# DevOps # 
+## DevOps  
 É uma maneira de eu entregar valor pro meu cliente mais rápido.
 ## Por que DevOps? 
 Pois existem 2 equipes, a galera do desenvolvimento e a galera que mantem o sistema no ar.
@@ -381,7 +381,7 @@ Utilizo um topico e fila
 
 sender --->topico e o topico que leva a msg pras filas e os consumidores vao nas filas buscar as informações.
 
-# Azure
+## Azure
 RBAC - acessar a nuvem so sendo leitor, sem mexer nos recursos da nuvem do professor
 
 ## 12 factor application

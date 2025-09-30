@@ -401,3 +401,17 @@ E não da tempo de mudar o commit. O mais correto é correr pra nuvem pra invali
 
 ### Lambda Expression 
 Criar uma função dentro do programa, algo assim
+
+# SEGUNDO BIMESTRE
+## 29/09
+
+## Circuit Breaker
+Proteger a comunicação entre sistemas.
+Analogia do disjuntor
+Fechado = Ta tudo certo
+Aberto = deu ruim
+Meio-Aberto = tenta conectar novamente e vê se vai dar certo a reconexão. Se der certo ele conta, consegui conectar.
+Se der errado, ele volta pro fechado e continua esperando mais um pouco para depois tentar novamente.
+
+SKU - Código de barras de um produto no padrao americano
+Dead lettering - mensagens mortas

@@ -13,7 +13,7 @@ repository - conexão com o BD
 service - Lógica de negócios
 controller - html, api rest
 
-### Não reinvente a roda!
+## Não reinvente a roda!
 
 Se já existe um framework de mercado validado e que te ajude, utilize ele. Não inicie as coisas do zero.
  
@@ -125,10 +125,10 @@ public class Janelinha extends JFrame{
 
 ```
 
-#### Design Patterns
+# Design Patterns
 Soluções padrões para problemas comuns na Orientação à Objetos
 
-#### Princípio da Inversão de Dependências
+## Princípio da Inversão de Dependências
 A classe que vai consumir alguma coisa (classe controller (API REST, endpoints)) deve depender apenas de um abastração e não da implementação concreta.
 Classe concreta seria a classe de implementação de fato.
 Ou seja, ela usa uma interface e não uma implementação completa. 
@@ -138,7 +138,7 @@ Faço isso pra reduzir o acomplamento.
 
 No Spring, ele usa o Autowired e vai procurar onde no código que é implementada a interface.
 
-#### Quando devo usar a Herança??
+## Quando devo usar a Herança??
 Tenho 3 classes. Classe Animal, Gato e Cachorro. Gato e Cachorro herdam de animal. Exemplo ideal pois NUNCA um cachorro vai virar gato e nunca um gato vai virar cachorro. AS subclasses são uma divisão do pai. Nunca uma vai assumir o papel do outro.
 
 Outro exemplo: Classes Pessoa, Cliente e Funcionário. Nesse caso não daria pra usar herança pois usando herança você ta dizendo que o funcionário nunca seria um cliente. Se você fosse implementar isso em um banco de dados por exemplo, você teria que criar uma tabelona para o funcionário e uma tabelona para cliente, fazendo com que os dados estivessem duplicados.
@@ -148,12 +148,12 @@ Com o tempo, percebeu-se que isso trazia forte acoplamento: mudanças na classe 
 
 Hoje, a recomendação é: quando possível, prefira composição (uma classe usar outra como atributo) em vez de herança, pois isso tende a gerar sistemas mais flexíveis e fáceis de manter.
 
-### **Principio do Menor conhecimento** (DEMETER)
-##### O Princípio de Demeter — também chamado de Princípio do Menor Conhecimento (Principle of Least Knowledge) — defende que a implementação de um método deve invocar apenas os seguintes outros métodos:
-###### de sua própria classe (caso 1)
-###### de objetos passados como parâmetros (caso 2)
-###### de objetos criados pelo próprio método (caso 3)
-###### de atributos da classe do método (caso 4)
+## **Principio do Menor conhecimento** (DEMETER)
+#### O Princípio de Demeter — também chamado de Princípio do Menor Conhecimento (Principle of Least Knowledge) — defende que a implementação de um método deve invocar apenas os seguintes outros métodos:
+##### de sua própria classe (caso 1)
+##### de objetos passados como parâmetros (caso 2)
+##### de objetos criados pelo próprio método (caso 3)
+##### de atributos da classe do método (caso 4)
 
 Ou seja, o demeter quer limitar o acesso dos teus objetos à um escopo meio que local, e se ele precisar receber coisas de fora, ele tem que receber por parâmetro, para que não utilize variáveis globais.
 
@@ -162,7 +162,7 @@ Ou seja, o demeter quer limitar o acesso dos teus objetos à um escopo meio que 
 
 É basicamente você respeitar a assinatura do pai que você herdou, permitindo que eu troque um filho por outro e o código continuar funcionando normalmente. Por exemplo no caso das Janelinhas no java. No Swing eu tenho a classe AbstractBorder. Ai eu tenho também as classes LineBorder e TitledBorder. Essas duas classes são filhas de AbstractBorder.
 
-### Princípio do Aberto e fechado
+## Princípio do Aberto e fechado
 A classe deve estar fechada para modificações e aberta para extensões.
 Você deve proteger seus objetos pra que ninguém possa quebrar ele, porém preciso ser capaz de extender, de dar novas funcionalidades sem quebrar aquilo que meu código já faz.
 
@@ -184,7 +184,7 @@ cria um getInstance estático
 que vai ver if singleton == null, cria novo singleton
 senao, retorna o singleton.
 
-## 20250825
+## Aula 25/08
 
 ### **Observer**
 Existe um objeto principal, chamado Publisher(grupo da família), que mantém um estado (A mensagem de bom dia da tia).
@@ -195,9 +195,9 @@ Sempre que o Publisher sofre uma alteração, ele notifica automaticamente todos
 Como o próprio nome fala, ele faz uma adaptação de uma "tecnologia" para outra. Um exemplo, é a conversão de XML para JSON na troca de informações por API. No mundo real, o nome disso é API GATEWAY.
 A Globo.com utiliza o KONG, que é um API gateway.
 
-## 20250826
+# Aula 26/08
  
-## Características arquiteturais##
+## Características arquiteturais
 São os requisitos não funcionais
 (Disponibilidade, Confiabilidade, Testabilidade, Escalabilidade, Segurança, Agilidade, Tolerância a falhas, Elasticidade, Recuperabilidade, Desempenho, Implementabilidade, Capacidade de aprendizagem)
 
@@ -205,11 +205,11 @@ São os requisitos não funcionais
 Os sistemas financeiros mais antigos, mais "clássicos" gastam bilhoes com a IBM usando o Mainframe deles.
 São máquinas vendidas pela ibm desde a decada de 1960. Esses mainframes rodam em cobol e Fortran e funcionam até hoje. Essas empresas usam isso até hoje pois esses mainframes são muito confiáveis.
 
-## Decisão arquitetural ##
+## Decisão arquitetural 
 Quando escolho a arquitetura que vou usar e que vai atender minhas necessidades.
 Por exemplo. Se escolho uma arquitetura por camadas, tenho que garantir que o sistema trabalhe por camadas corretamente.
 
-## Principios do Design ##
+## Principios do Design 
 é um principio: Tenho que fazer a comunicação através de um sistema de mensagerias assíncrona.
 
 Sistema de mensageria: É um serviço que coloco no meio da minha arquitetura onde uma parte do meu sistema escreve nele e uma parte do meu sistema lê dele. É um mecanismo que permite a troca de mensagens.
@@ -217,7 +217,7 @@ Sistema de mensageria: É um serviço que coloco no meio da minha arquitetura on
 ### Fun fact:
 Para cada pessoa no mundo que fala com a alexa, ela invoca uma lambda (uma maquina virtual), processa a resposta que você quer e depois essa VM é "morta".
 
-## Arquiteto ##
+## Arquiteto 
 Ele que vai tomar as decisoes de arquitetura.
 Ele tem que tomar as decisões com base em análises.
 Ele tem que estar por dentro das novas tendências.
@@ -225,36 +225,36 @@ Deve ter experiência com cenários diferentes
 Manter padrão
 Manter lado humano
 
-### Orientar ###
+### Orientar 
 Deve orientar a equipe de acordo com sua experiência e conhecimento
 A grande sacada é o arquiteto entender que, nem sempre ele sabe tudo.
 
 ### Analisar continuamente o sistema ###
 Analisar constantemente o sistema para avaliar se a forma que você ta programando e as ferramentas que você está utilizando estão de fato agregando ao sistema, ou se é necessário mudar o "rumo" das coisas.
 
-### Fun fact:###
+### Fun fact:
 A grande maioria dos microsserviços da netflix esta no java 8.
 
-### Assegurar que os padrões estão sendo seguidos ###
+### Assegurar que os padrões estão sendo seguidos 
 Através da análise estática de códigos. - Que são ferramentas que varrem meu código procurando alguma quebra de padrão pré estabelecida.
 Exemplo: Eu criar uma conexão de banco de dados na camada do controlador. Estou quebrando as camadas predefinidas. 
 Dessa forma, apenas através da análise estática, consigo garantir que isso não irá ser quebrado.
 
-### Arquiteto não se cria sem experiência ###
+### Arquiteto não se cria sem experiência 
 Precisa passar por ERP, por Desweb, por Mobile etc..
 Arquiteto tem que ter boa noção de administração, pois ele precisa ser capaz de falar com o PO sobre a regra de negócio. 
 
-### Habilidades Interpessoais ###  
+### Habilidades Interpessoais 
 Ele precisa ser bom com as pessoas
 
-### Precisa ser político ### 
+### Precisa ser político 
 Precisa saber que existem hierarquias, precisa saber convencer, influenciar e negociar.
 
 ---
 
-# DevOps #  
+# DevOps # 
 É uma maneira de eu entregar valor pro meu cliente mais rápido.
-## Por que DevOps? ##  
+## Por que DevOps? 
 Pois existem 2 equipes, a galera do desenvolvimento e a galera que mantem o sistema no ar.
 Nesse sentido, a ideia foi colocar essas duas equipes para trabalhar colaborativamente.
 
@@ -280,9 +280,9 @@ saber voltar versão se der algum problema, sem parar o sistema
 
 ---
 
-#20250902
+# Aula 02/09
 
-### Arquitetura vs Design
+## Arquitetura vs Design
 
 ### Arquiteto
 cria os artefatos que são passados para os desenvolvedores
@@ -311,7 +311,7 @@ Qualquer indivíduo pode particionar seu conhecimento em 3 partes. O que você s
 
 "Como arquiteto, é mais vantajoso saber que existem 5 soluções para certo problema do que ter especialização em apenas uma".
 
-# 20250908 - Arquitetura baseada em tópicos:
+# Aula 08/09 - Arquitetura baseada em tópicos:
 
 Analogia do grupo da familia - Tia manda o bom dia no grupo e todos recebem
 É como se fosse o observer, porém nesse caso, é de um sistema distribuido, ou seja, não estão no mesmo "programa".
@@ -381,7 +381,7 @@ Utilizo um topico e fila
 
 sender --->topico e o topico que leva a msg pras filas e os consumidores vao nas filas buscar as informações.
 
-## Azure
+# Azure
 RBAC - acessar a nuvem so sendo leitor, sem mexer nos recursos da nuvem do professor
 
 ## 12 factor application
@@ -394,7 +394,7 @@ Mas criaram o documento que explica os 12 fatores para uma applicação moderna.
 2 fator - As dependencias tem que ser declaradas de alguma forma
 3 fator - As configs deveriam estar armazenadas no ambiente.
 
-## 20250916
+# Aula 16/09
 
 Nunca criar uma string de acesso e deixar no codigo simples assim. Pois é muito facil voce dar um commit sem querer e acabar vazando no seu git uma string de acesso à nuvem.
 E não da tempo de mudar o commit. O mais correto é correr pra nuvem pra invalidar a string.

@@ -415,3 +415,29 @@ Se der errado, ele volta pro fechado e continua esperando mais um pouco para dep
 
 SKU - Código de barras de um produto no padrao americano
 Dead lettering - mensagens mortas
+
+## 06/10
+
+A arquitetura de software vai além da codificação e do design: ela define como o sistema deve funcionar estruturalmente e operacionalmente para atender não apenas aos requisitos do domínio (funcionais), mas também às características da arquitetura — aspectos essenciais que garantem o sucesso do sistema.
+
+Essas características:
+
+São considerações de design fora do domínio (ex.: desempenho, segurança, manutenibilidade).
+
+Influenciam a estrutura do sistema, exigindo componentes ou módulos específicos.
+
+São críticas para o sucesso da aplicação, devendo ser escolhidas com cuidado para evitar complexidade excessiva.
+
+As características se dividem em:
+
+Operacionais: desempenho, disponibilidade, confiabilidade, escalabilidade, continuidade, robustez.
+
+Estruturais: modularidade, portabilidade, reutilização, manutenção, configuração, atualização.
+
+Transversais: segurança, autenticação, acessibilidade, privacidade, usabilidade, conformidade legal.
+
+A ISO também define atributos de qualidade como eficiência de desempenho, compatibilidade, confiabilidade, segurança, manutenibilidade e portabilidade.
+
+Um ponto central é o trade-off — ao fortalecer uma característica (como segurança), pode-se enfraquecer outra (como desempenho). Por isso, o arquiteto busca a “arquitetura menos pior”, equilibrando prioridades conforme o contexto e evitando tentar atender a todas as características ao mesmo tempo.
+
+Por fim, a arquitetura deve ser iterativa e adaptável, permitindo ajustes contínuos conforme o sistema evolui.

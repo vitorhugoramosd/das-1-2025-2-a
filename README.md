@@ -488,4 +488,37 @@ Em outras nomenclaturas, Cliente/servidor com Web server
 Web 1.0 pra Web 2.0. Na Web 2.0, além do html, tem o Javascript (aplicação que roda no meu navegador). Ai o Servidor vira uma API REST. Dessa forma, além do HTML, trafegam dados em JSON.
 Agora, já temos um sistema distribuído.
 
+## 14/10
 
+### Três camadas
+
+#### CORBA (Common Object Request Broker Architecture)
+O primeiro framework que permitiu duas linguagens conversarem. Linguagens diferentes trocar informação.
+Você tinha um padrão ORB específico. Ai você tinha uma camada de adaptação que adaptava a mensagem de cada linguagem para uma linguagem padrão.
+
+#### Fun fact Netflix - GRPC
+Eles desde o início utilizavam a AWS. Ai no começo eles perceberem que a maior parte do que eles pagavam da AWS foi a troca de mensagem entre microsserviços. Dessa forma, eles criaram um protocolo chamado GRPC pra fazer a comunicação de microsserviços transformando a mensagem em um padrão binário para "economizar" pois é bem mais leve que um texto. A netflix meio que utilizou a mesma ideia do CORBA.
+
+#### Troca de dados
+Em JSON (via API Rest) ou em SOAP (que é XML, exemplo de NFE)
+
+#### Monolito
+Todo o código está em um único lugar. 
+Para rodar você compila ele inteiro, como um software único. 
+E quando ele roda, ele é um único processo. 
+Pra você "mexer" no código, você tem que baixae ele inteiro.
+É o jeito mais fácil de começar um sistema.
+
+#### Fun Fact Facebook
+Quando os serviços do meta cairam, o que aconteceu foi que um programador foi fazer uma atualização e acabou enviando um erro na atualização. Quando foi "baixada" essa atualização, as rotas DNS apresentaram erro e foram "excluidas" pelo próprio sistema. Se ele nao encontra caminho possível ele exclui. Ai todas as rotas foram excluidas e a unica forma pra resolver era reiniciando os roteadores. O problema era que, o "cadeado" para acessar os datacenters estava conectado na rede. Resumidamente, tiveram que "arrombar" os datacenters, por isso demorou 7 horas pra voltar. 
+
+#### Log distribuído
+SIstema pra centralizar os logs da aplicação. Exemplos: Jaeger - plataforma pra centralizar logs e tracings distribuidos Porém nele, você tem que fazer mais configurações. Existe também o Splunk, que ja vem mais "configurado", mas é mais caro. Existe por fim, o mais caro, que é o melhor de todos, que é o Datadog. É o que a Conta Azul usa. o da AWS é o Cloud Watch, Azure é o Azure Monitor e por ai vai....
+
+#### Transações distribuídas
+Quando a transação começa em um lugar em um banco de dados, e termina em outro lugar com outro banco de dados. Exemplo Uber.
+
+#### Dapr.io
+Runtime pra ajudar a criar aplicações em microsserviços totalmente distribuido e automatizado. 
+Você escreve sua aplicação em qualquer linguagem que você quiser, ela só precisa fazer uma chamada em HTTP ou GRPC. Ai você diz pra ele oq voce precisa, ele vai lá e fala por você. 
+Ele roda em qualquer nuvem (Azuere, AWS, Google cloud etc.) e 100% gratuito

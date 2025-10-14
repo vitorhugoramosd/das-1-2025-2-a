@@ -441,3 +441,51 @@ A ISO também define atributos de qualidade como eficiência de desempenho, comp
 Um ponto central é o trade-off — ao fortalecer uma característica (como segurança), pode-se enfraquecer outra (como desempenho). Por isso, o arquiteto busca a “arquitetura menos pior”, equilibrando prioridades conforme o contexto e evitando tentar atender a todas as características ao mesmo tempo.
 
 Por fim, a arquitetura deve ser iterativa e adaptável, permitindo ajustes contínuos conforme o sistema evolui.
+
+## 07/10
+
+CQRS
+
+Design Pattern que separa operações de leitura e gravação de um repositório de dados em modelos de dados separados.
+Mais desempenho, a escalabilidade e a segurança
+
+### Benefícios
+Escalabilidade independente
+Esquemas de dados otimizados
+Segurança
+Separação de preocupações
+Consultas mais simples
+
+## 13/10
+
+### Retry pattern
+
+Cancel - Cancela a operação primeiro.
+
+Retry immediately - Tenta realizar a operação imediatamente após o erro.
+
+Retry after delay - conhecido como (Exponential backoff) - é o fato de você utilizar uma função exponencial para tentar novamente. Ele vai aumentando o tempo da próxima tentativa de forma exponencial, porém tem um limite.
+
+Um software pode usar mais de um estilo/padrão.
+
+### Big ball of Mud
+Sistema com grande confusão de código, mal estruturado e unido com fita adesiva e arame. São sistemas que apresentaram um crescimento desregulado, com muitos reparos rápidos (Manutenções) e repetidos. 
+
+### Arquitetura Unitária.
+Software feito pra rodar em um único computador. Exemplo: Softwares embarcados (de geladeira, microondas, frigobar etc.) Ele é feito pra rodar apenas naquele dispositivo, não tem atualizações.
+
+### Arquitetura Desktop + Banco de dados ou Cliente/Servidor Database Centric.
+Uma máquina forte rodando o banco de dados e várias máquinas conectadas à essa máquina forte com o BD.
+Em outros termos, uma arquitetura Cliente/servidor ou Database Centric.
+Neste caso, onde estava a lógica dos programas? Está nas máquinas mas também tem lógica no banco de dados. - Store Procedure. 
+Exemplo: faço um select * from pedidos. Quando eu faço essa consulta muito pesada, a operação é feita diretamente no banco de dados.
+SAP roda assim até hoje, da TOTVS também.
+SE eu precisar atualizar, preciso atualizar no banco de dados e depois máquina por máquina.
+
+### Navegador + Servidor Web
+Ainda tempos Banco de dados, porém agora, existe o Web server entre o BD e as máquinas. O Web Server conecta no Banco e as outras máquinas através do navegador, conectam no web server. Eles conectam para receber o HTML. Nesse caso, pra atualizar o sistema, é só atualizar o Web Server
+Em outras nomenclaturas, Cliente/servidor com Web server
+Web 1.0 pra Web 2.0. Na Web 2.0, além do html, tem o Javascript (aplicação que roda no meu navegador). Ai o Servidor vira uma API REST. Dessa forma, além do HTML, trafegam dados em JSON.
+Agora, já temos um sistema distribuído.
+
+

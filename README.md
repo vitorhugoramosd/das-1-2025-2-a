@@ -522,3 +522,49 @@ Quando a transação começa em um lugar em um banco de dados, e termina em outr
 Runtime pra ajudar a criar aplicações em microsserviços totalmente distribuido e automatizado. 
 Você escreve sua aplicação em qualquer linguagem que você quiser, ela só precisa fazer uma chamada em HTTP ou GRPC. Ai você diz pra ele oq voce precisa, ele vai lá e fala por você. 
 Ele roda em qualquer nuvem (Azuere, AWS, Google cloud etc.) e 100% gratuito
+
+## 20/10 e 21/10
+
+### Arquitetura em camadas (n tier)
+Padrão da maioria das aplicações
+simplicidade e baixo custo
+Lei de Conway - determina que as organizações que projetam sistemas estão limitadas a produzir designs que são cópias das estruturas de comunicação dessas organizações
+
+#### Topologia
+Camadas horizontais lógicas, com cada camada tendo uma função específica dentro da aplicação.
+A maioria utiliza 4 camadas. As mais complexas podem ter 5 ou mais camadas.
+- Camada de Apresentação
+- Camada Comercial
+- Camada de Persistência
+- Camada de Banco de Dados
+
+
+## 27/10
+Arquitetura Pipelina
+
+Tenho varios programas e vou encadeando um programa conectado no outro.
+
+Quando você usava um input(scanner), tudo que voce digita entra no sistema.
+STDIN - entrada
+STDOUT - saida.
+Canos(Pipes), onde eu conecto a saida de um programa com a entrada de outro.
+Temos programas que tem uma interface de entrada e uma interface de saída bem claras.
+Filtros - Programas
+Canais - Conexões.
+### Nos filtros
+Produtor - Ponto de partida de um processo. As vezes chamado de origem
+Transformador - Pega a entrada e transforma em outro formato
+Verificador - Faz um search dentro do resultado
+Consumidor - O que vou fazer com a informação no final do pipe
+
+### Comandos importantes
+ps ax- é o gerenciador de tarefas do windows. Ele mostra os programas em execuçao.
+grep - exemplo de um filtro, eu falo grep (e o filtro q eu quero aplicar) 
+tail - traz só o final
+curl - traz o html do url q eu colocar
+wget - pra baixar esse html
+
+## 28/10
+Apache Kafka - Modelo de broker, publisher e subscriber. - Serviço de Stream
+Partitions - Quando mando um evento pra um topico na mesma partiçao, o kafka guarda eles na ordem em que chegaram. Ou seja, se der ruim nos consumidores, ele continua guardando as msg, ai você consegue "voltar no tempo".
+

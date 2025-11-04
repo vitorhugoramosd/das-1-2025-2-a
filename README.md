@@ -568,3 +568,12 @@ wget - pra baixar esse html
 Apache Kafka - Modelo de broker, publisher e subscriber. - Serviço de Stream
 Partitions - Quando mando um evento pra um topico na mesma partiçao, o kafka guarda eles na ordem em que chegaram. Ou seja, se der ruim nos consumidores, ele continua guardando as msg, ai você consegue "voltar no tempo".
 
+## 03/11
+
+### Arquitetura de MicroKernel
+também referido como arquitetura de plug-in. 
+
+#### Estrutura
+Monolítica 
+Dois componentes de arquitetura: Sistema Central e Componentes de Plug-In.
+A lógica de aplicativo é dividida entre um sistema central e componentes de plug-in. 

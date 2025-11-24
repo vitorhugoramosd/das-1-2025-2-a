@@ -568,7 +568,7 @@ wget - pra baixar esse html
 Apache Kafka - Modelo de broker, publisher e subscriber. - Serviço de Stream
 Partitions - Quando mando um evento pra um topico na mesma partiçao, o kafka guarda eles na ordem em que chegaram. Ou seja, se der ruim nos consumidores, ele continua guardando as msg, ai você consegue "voltar no tempo".
 
-## 03/11
+## 03/11 04/11
 
 ### Arquitetura de MicroKernel
 também referido como arquitetura de plug-in. 
@@ -577,3 +577,65 @@ também referido como arquitetura de plug-in.
 Monolítica 
 Dois componentes de arquitetura: Sistema Central e Componentes de Plug-In.
 A lógica de aplicativo é dividida entre um sistema central e componentes de plug-in. 
+
+A arquitetura microkernel (ou plug-in) existe há décadas e ainda é amplamente usada, principalmente em aplicações baseadas em produto, mas também em sistemas corporativos complexos. Ela é formada por:
+
+#### Sistema Central (Kernel)
+
+É a parte mínima necessária para o sistema funcionar.
+Contém apenas o fluxo principal (“caminho feliz”), enquanto toda a lógica específica, complexa ou personalizada é movida para plug-ins.
+Exemplos: Eclipse (seu core é só um editor básico).
+
+O kernel pode ser:
+uma pequena arquitetura em camadas,um módulo monolítico, ou dividido em serviços de domínio
+Frequentemente, toda a aplicação compartilha um único banco de dados, embora o kernel normalmente seja o responsável por acessá-lo.
+
+#### Componentes de Plug-in
+
+São módulos independentes, autocontidos e frequentemente voláteis (mudam bastante).
+Servem para adicionar funcionalidades, regras específicas, customizações de clientes ou extensões do sistema.
+
+Podem ser:
+
+baseados em compilação (requerem reinstalação ao mudar),
+dinâmicos em tempo de execução, via OSGi, Jigsaw, Prism, etc.
+A comunicação com o kernel geralmente é ponto a ponto (chamadas diretas), mas pode ser remota via REST ou mensageria, transformando o plug-in em um serviço independente. Isso melhora escalabilidade, mas aumenta complexidade.
+Plug-ins normalmente não acessam diretamente o banco central; o kernel faz essa mediação.
+Eles podem ter bancos próprios, isolados.
+
+#### Registro de Plug-ins
+
+O kernel precisa saber quais plug-ins existem.
+Esse registro pode ser simples (um mapa interno) ou complexo (Consul, Zookeeper).
+Guarda nome, contratos, parâmetros e forma de chamada de cada plug-in.
+
+#### Contratos
+
+Definem o comportamento, dados de entrada e saída de cada plug-in.
+São essenciais para padronizar a comunicação entre kernel e plug-ins.
+Implementados geralmente como interfaces, JSON, XML, etc.
+
+Exemplos de Uso
+Além de IDEs, navegadores e ferramentas de desenvolvimento (Eclipse, Jira, Jenkins, Chrome, Firefox), o microkernel também se aplica a sistemas corporativos:
+Seguradoras: regras por jurisdição implementadas como plug-ins independentes.
+Softwares de imposto: cada formulário adicional é um plug-in, e o formulário principal (1040) é o kernel.
+
+# 10/11 11/11
+
+## Arquitetura de Microsserviços
+
+A arquitetura de microsserviços organiza um sistema como um conjunto de serviços pequenos, independentes e autônomos. 
+Cada serviço possui seu próprio código, banco de dados e ciclo de implantação, comunicando-se com os demais por meio de mensagens, geralmente via APIs REST, eventos ou mensageria. 
+A ideia central é que cada parte do sistema funcione isoladamente, conhecendo apenas os contratos de comunicação e nunca os detalhes internos dos outros serviços.
+
+## Benefícios e Objetivos
+
+Microsserviços trazem modularidade real, permitindo que cada serviço seja desenvolvido, testado, escalado e implantado separadamente. 
+Isso reduz o impacto de falhas, acelera ciclos de desenvolvimento e dá liberdade para que equipes usem diferentes tecnologias e bancos de dados conforme a necessidade de cada domínio. 
+Sistemas que têm cargas variáveis, exigem alta escalabilidade e evoluem rapidamente costumam se beneficiar muito desse estilo arquitetural.
+
+## Desafios e Complexidade
+
+Apesar das vantagens, microsserviços aumentam a complexidade operacional. Como o sistema passa a ser distribuído, rastrear problemas se torna mais difícil, a comunicação entre serviços é naturalmente mais lenta que chamadas internas e o gerenciamento de dados exige atenção, já que cada serviço pode manter seu próprio banco, criando desafios de consistência. Além disso, operar e monitorar dezenas de serviços demanda automação, pipelines robustos, observabilidade e uma equipe madura para lidar com infraestrutura mais sofisticada.
+
+Microsserviços são indicados para sistemas grandes, com múltiplos domínios e equipes, e que precisam de escalabilidade independente entre funcionalidades. Plataformas como Netflix e Amazon são exemplos clássicos, mas empresas tradicionais também adotam esse modelo quando precisam evoluir seus produtos de forma contínua e segura. Apesar disso, para sistemas pequenos ou estáveis, a complexidade extra não compensa, tornando outras arquiteturas mais adequadas.

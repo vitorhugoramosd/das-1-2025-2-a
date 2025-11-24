@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AppBApplication",
+            "request": "launch",
+            "mainClass": "br.univille.app_b.AppBApplication",
+            "projectName": "app-b"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "br.univille.Main",
